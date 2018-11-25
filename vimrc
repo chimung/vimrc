@@ -34,6 +34,34 @@ filetype plugin indent on    " required
 :colorscheme github
 
 "Set startup config
-:set nu
-:syntax on
-:filetype plugin on
+autocmd vimenter * NERDTree
+set nu
+set cursorline
+filetype plugin on
+syntax enable
+
+:set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+let mapleader="\\"
+
+"Config NerdTree
+let NERDTreeShowHidden=1
+
+"Config Easymotion
+nmap <leader><leader><space> <Plug>(easymotion-jumptoanywhere)
+nmap <leader><leader>sn <Plug>(easymotion-sn)
+
+"Mapping global
+nnoremap <leader>vsc :vsplit $MYVIMRC<CR>
+nnoremap <leader>bc :bp \| bw#<CR>
+
+inoremap  <Up>     <NOP>
+inoremap  <Down>   <NOP>
+inoremap  <Left>   <NOP>
+inoremap  <Right>  <NOP>
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+
+"mapping save file
+inoremap <c-s> <esc>:w<CR>
+noremap  <c-s> :w<CR>
