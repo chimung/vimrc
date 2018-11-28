@@ -9,9 +9,10 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'rayburgemeestre/phpfolding.vim'
-Plugin 'git@github.com:chimung/html-hardcore.git'
 Plugin 'scrooloose/nerdtree'
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'easymotion/vim-easymotion'
 "Themes
 Plugin 'dracula/vim'
 " All of your Plugins must be added before the following line
@@ -41,7 +42,13 @@ filetype plugin on
 syntax enable
 
 :set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+:set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+:set list
 let mapleader="\\"
+
+"Config Airline
+let g:airline_theme='papercolor'
+let g:airline#extensions#tabline#enabled = 1
 
 "Config NerdTree
 let NERDTreeShowHidden=1
