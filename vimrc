@@ -13,7 +13,7 @@ Plugin 'rayburgemeestre/phpfolding.vim'
 Plugin 'git@github.com:chimung/html-hardcore.git'
 Plugin 'scrooloose/nerdtree'
 "Themes
-Plugin 'endel/vim-github-colorscheme'
+Plugin 'dracula/vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -31,7 +31,7 @@ filetype plugin indent on    " required
 "
 "
 " Set colorscheme
-:colorscheme github
+:colorscheme dracula
 
 "Set startup config
 autocmd vimenter * NERDTree
