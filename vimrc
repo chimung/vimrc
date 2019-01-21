@@ -13,6 +13,7 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
 "Themes
 Plugin 'dracula/vim'
 " All of your Plugins must be added before the following line
@@ -35,7 +36,7 @@ filetype plugin indent on    " required
 :colorscheme dracula
 
 "Set startup config
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 set nu
 set cursorline
 filetype plugin on
@@ -71,10 +72,14 @@ nmap <leader><leader>sn <Plug>(easymotion-sn)
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'r'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/* " lol
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/vendor/* " lol
 let g:ctrlp_show_hidden=1
+let g:ackprg = "ag --vimgrep"
 
-"Mapping global
+nnoremap <Leader>a :Ack!<Space>
+"===============================================
+"                    Mapping global
+"===============================================
 nnoremap <leader>vsc :vsplit $MYVIMRC<CR>
 nnoremap <leader>bc :bp \| bw#<CR>
 
