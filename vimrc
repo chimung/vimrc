@@ -6,13 +6,13 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
-
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'kien/ctrlp.vim'
 "Themes
 Plugin 'dracula/vim'
 " All of your Plugins must be added before the following line
@@ -40,22 +40,39 @@ set nu
 set cursorline
 filetype plugin on
 syntax enable
+set noswapfile
 
 :set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 :set list
 let mapleader="\\"
 
-"Config Airline
-let g:airline_theme='papercolor'
-let g:airline#extensions#tabline#enabled = 1
+"===============================================
+"                    Airline
+"===============================================
+let g:airline_theme='dracula'
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#branch#enabled = 1
 
-"Config NerdTree
+"===============================================
+"                    NerdTree
+"===============================================
 let NERDTreeShowHidden=1
 
-"Config Easymotion
+"===============================================
+"                    Easymotion
+"===============================================
 nmap <leader><leader><space> <Plug>(easymotion-jumptoanywhere)
 nmap <leader><leader>sn <Plug>(easymotion-sn)
+
+"===============================================
+"                    Ctrlp
+"===============================================
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'r'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/* " lol
+let g:ctrlp_show_hidden=1
 
 "Mapping global
 nnoremap <leader>vsc :vsplit $MYVIMRC<CR>
