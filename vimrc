@@ -59,6 +59,7 @@ let g:airline#extensions#branch#enabled = 1
 "                    NerdTree
 "===============================================
 let NERDTreeShowHidden=1
+noremap <c-g> :NERDTreeToggle<CR>
 
 "===============================================
 "                    Easymotion
@@ -70,13 +71,24 @@ nmap <leader><leader>sn <Plug>(easymotion-sn)
 "                    Ctrlp
 "===============================================
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_working_path_mode = 'r'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/vendor/* " lol
 let g:ctrlp_show_hidden=1
+let g:ctrlp_max_files = 0
+let g:ctrlp_match_window = 'bottom,order:tbb,min:1,max:20,results:20'
+"" The Silver Searcher
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
+"===============================================
+"                    Ack
+"===============================================
+nnoremap <Leader>a :Ack!<Space>
 let g:ackprg = "ag --vimgrep"
 
-nnoremap <Leader>a :Ack!<Space>
 "===============================================
 "                    Mapping global
 "===============================================
@@ -94,3 +106,5 @@ noremap   <Left>   <NOP>
 "mapping save file
 inoremap <c-s> <esc>:w<CR>
 noremap  <c-s> :w<CR>
+noremap  <c-w>- :vertical resize -20<CR>
+noremap  <c-w>= :vertical resize +20<CR>
